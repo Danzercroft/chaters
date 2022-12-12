@@ -1,0 +1,1084 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-1/css/all.css');
+
+html,body, #root, .container-true, .fullHeight {
+    height:100%!important;
+    overflow:hidden;
+    background:white;
+    font-family: 'Inter', sans-serif!important;
+
+}
+
+.fullHeight {
+    margin:0!important;
+    width:100%
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 700;;
+}
+
+img {
+    margin:0 8px;
+}
+/* Styled scrollbars for Firefox and Webkit */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: slategrey lightgrey;
+  }
+
+*::-webkit-scrollbar {
+    width: 14px;               /* width of the entire scrollbar */
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: lightgrey!important ;
+    border-radius:30px ;      /* color of the tracking area */
+    margin:3px 0;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color:slategray;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 2px solid lightgrey;  /* creates padding around scroll thumb */
+  }
+
+.sidenav {
+    border-right: solid 1px lightgrey;
+    display:flex;
+    flex-direction: column;
+    max-width: 20%!important;
+    padding:0;
+    flex-grow:1;
+    max-height: 100vh;
+}
+
+.usersInRoom {
+    border-left: solid 1px lightgrey;
+    max-width: 20%;
+    display:flex;
+    padding:1rem;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.usersInRoom div {
+    display: flex;
+    margin:0.8rem 0;
+}
+
+.usersInRoom h3 {
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.chatMainContainer {
+    min-width:65%;
+    max-width: 84%;
+    margin:0;
+    flex: 1 0;
+    display:flex;
+    flex-direction: column;
+    max-height: 100%;
+    padding:0;
+}
+
+
+.chatInput {
+    margin-top:auto;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding:0.3rem;
+    padding-bottom:0.3rem;
+    height:7.7%;
+    /*margin left and right set to 0 to over write row class -15px left and right margins*/
+    margin-left:0!important;
+    margin-right:0!important;
+}
+
+.chatInput input {
+    height:100%;
+}
+
+.input-group-append {
+    width:10%;
+}
+
+.input-group-append button {
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+.channelHash, .userAt {
+    font-weight: 700;
+    font-size: inherit;
+    color:#F05340;
+    display: inline;
+    padding:0 1rem;
+    margin: auto 0!important;
+    line-height: 1!important;
+}
+
+.userAt {
+    color:#61DBFB;
+}
+
+.chatDisplay {
+    flex-direction: column!important;
+    flex-wrap:nowrap;
+    overflow-y:auto;
+    height: 85%;
+    /*margin left and right set to 0 to over write row class -15px left and right margins*/
+    margin-left:0!important;
+    margin-right:0!important;
+    background: white;
+}
+
+.chatUserMsg {
+    text-align:left;
+    word-wrap: break-word;
+    background:#09f;
+    color:white;
+    padding:1rem;
+    border: 2px solid #09f;
+    border-radius:10px;
+    margin-bottom: 0.8rem;
+    flex-grow: 0;
+    flex-basis:auto!important;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-top-right-radius:0;
+    width: fit-content;
+    margin-left: auto;
+
+}
+
+.chatUserMsg::before {
+    content:"";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width:  15px 14px 0 0;
+    border-color: #09f transparent transparent transparent;
+    content: "";
+    position: absolute;
+    right: -14px;
+    top: -2px;
+}
+
+.chatNotUserMsg {
+    text-align:left;
+    word-wrap: break-word;
+    background:#ededed;
+    padding:1rem;
+    border: 2px solid #ededed;
+    border-radius:10px;
+    flex-grow: 0;
+    flex-basis:auto!important;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-top-left-radius:0;
+    margin-bottom:0.8rem;
+}
+
+.typingBubble {
+    text-align:left;
+    word-wrap: break-word;
+    background:#ededed;
+    padding:1rem;
+    border: 2px solid #ededed;
+    border-radius:10px;
+    flex-grow: 0;
+    flex-basis:auto!important;
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-top-left-radius:0;
+    width: fit-content;
+}
+
+.chatNotUserMsg::before {
+    content:"";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 14px 0;
+    border-color: transparent #ededed transparent transparent;
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: -2px;
+}
+
+.navCustom {
+    border-bottom: solid 1px grey;
+    padding: 0 0.8rem!important;
+}
+
+.unread {
+    background-color: rgb(225, 243, 255)!important;
+}
+
+.channelNameContainer {
+    box-shadow: 0 4px 5px -2px rgb(0 0 0 / 10%);
+    padding: 0.8rem;
+    font-size:1.8rem;
+    display:flex;
+    height:5.5rem;
+    z-index: 1;
+}
+
+.channelDescButton {
+    font-size:2.2rem;
+    background-color: white!important;
+    border:none;
+    color:#09F!important;
+    margin:0 1rem;
+}
+
+.popover {
+    max-width: 25%!important;
+}
+
+.online {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    display:block;
+    margin:auto 1rem;
+}
+
+.offline {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color:lightgrey;
+    display:block;
+    margin:auto 1rem;
+}
+
+.sidepaneParentChannel {
+    max-height:41.5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.show {
+    display:flex;
+    flex-direction: column;
+}
+
+.sidepaneParentDm {
+    min-height:41.5vh;
+    max-height:91.5vh;
+    display: flex;
+    flex-direction: column;
+    border-top:1px solid lightgrey;
+}
+
+.sidepaneParentDm h3, .sidepaneParentChannel h3 {
+    font-weight: 700!important;
+    display:flex;
+    margin:0;
+}
+
+/* .sidepaneParentDm i{
+    margin-left: auto;
+} */
+
+.sidepaneParentButton {
+    padding:0.75rem!important;
+    margin-bottom:1rem;
+    text-align: left;
+    box-shadow: 0 5px 5px 2px rgb(0 0 0 / 6%);
+    cursor:pointer;
+    display:flex;
+}
+
+.createChannel {
+ background:white;
+ border:white;
+ color:var(--main-heading-color);
+ font-size:1.5rem;
+ padding: 5px 7px;
+ margin-right:1rem;
+ display:flex;
+}
+
+.channelName h1 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+
+.createChannel:hover, .createChannel:active, .createChannel:focus  {
+    background:lightgrey;
+    border:lightgrey;
+    color:var(--main-heading-color);
+    box-shadow: none;
+   }
+
+.arrow {
+    padding: 5px 7px;
+    font-size: 1.7rem;
+}
+   
+.Logo {
+
+}
+
+.LogoNav {
+
+}
+
+.Logo h2 {
+
+}
+
+.LogoNav h2, .LogoNav span {
+
+}
+
+.navbar-nav {
+
+}
+
+.nav-item {
+
+}
+
+.nav-link {
+}
+
+.fullDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.intro {
+}
+
+.hero-centre {
+
+}
+
+.hero-centre a, .hero-centre a:hover {
+
+}
+
+.hero-centre a:hover {
+
+}
+
+.svg-std {
+    border:none;
+    height: 6.5em;
+    width: 6.5em;
+    display: inline-block;
+    margin:0;
+  }
+
+.tech-stack {
+    background:white;
+    padding: 1rem;
+    margin:0.5rem;
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.hero-centre p {
+
+}
+
+.hero-centre h1 {
+
+}
+
+.userMention::before {
+    content:"@";
+    color:#61DBFB;
+    font-weight: bold;
+    padding-right: 0.8rem;
+}
+
+.channelMention::before {
+    content:"#";
+    color:#F05340;
+    font-weight: bold;
+    padding-right: 0.8rem;
+}
+
+.NavContainer {
+
+}
+
+.sidepaneDm {
+    overflow-y: auto;
+    display:block;
+}
+
+.sidepaneChannel {
+    overflow-y: auto;
+    display:block;
+    padding-left:1rem;
+    max-height: 32vh;
+}
+
+.systemMsg {
+    flex-grow: unset;
+    text-align: center;
+    background: var(--light);
+    width: 50%;
+    margin: 1rem auto;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 4px rgba(0,0,0, 0.1);
+}
+
+.dmuser, .channelElement {
+    padding:0.3rem 0;
+    border-radius : 0.8rem;
+    margin-right:0.4rem;
+}
+
+.dmuser:hover, .channelElement:hover {
+    background:whitesmoke;
+}
+
+
+.dmuser, .channelElement button {
+    padding:0.4rem 0;
+}
+
+.channelElement {
+    padding:0.5rem;
+    display: flex;
+}
+
+.channelElement button {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.channelElement::before {
+    content:"#";
+    color:lightslategrey;
+    font-size:1.2rem;
+    font-weight: 600;
+    margin:auto 0;
+    padding-right: 1rem;
+}
+
+.dmuser button:hover, .channelElement button:hover {
+    text-decoration: none!important;
+}
+
+.dmuser button {
+    display:flex;
+}
+
+.dmuser b {
+    margin:auto 0;
+}
+.online-text {
+color:green;
+font-size:1rem;
+}
+
+.offline-text {
+color:grey;
+font-size:1rem;
+
+}
+
+.dmuser button {
+    width:100%;
+    overflow-x:hidden;
+}
+
+.channelElement button {
+    width:55%;
+    overflow-x:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dmuser b, .channelElement b {
+    width:65%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x:hidden;
+    text-align:left
+}
+
+.channelName{
+    margin: auto 0!important;
+    display: flex;
+    height: fit-content!important;
+}
+
+.channelNameButtons {
+    display: flex;
+    flex-direction: row;
+    margin: auto 10px;
+    margin-left: auto;
+}
+
+.authcard {
+
+}
+
+
+.authcard h1 {
+
+}
+
+.authcard p {
+
+}
+
+.authlabel {
+
+}
+
+.authcontainer {
+
+}
+
+.authcontainer h1, h2 {
+
+}
+
+.authcontainer h1 {
+
+}
+
+
+.cardcontainer {
+
+}
+
+.imagePreview {
+    position:relative;
+    flex: 1 1;
+    padding:10rem;
+}
+
+.croppedImage {
+    max-height: 300px;
+    max-width: 300px;
+    height: auto;
+    width: auto;
+    margin:0.8rem auto;
+}
+
+.cropperContainer {
+    margin: 2rem 0;
+}
+
+.dmAvatar {
+    border: 1px solid lightgrey;
+    border-radius: 50%;
+    height:3.8rem;
+    margin:0;
+    margin-right:8px
+}
+
+.msg-container, .typing-container {
+    display:flex;
+    width:fit-content;
+    max-width: 65%;
+    margin-right: auto; 
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+
+.typing-container:nth-child(1) {
+    flex-direction: row;
+    display: flex;
+    flex-grow: 1;
+}
+
+.msg-container-inner {
+    min-width: 250px;
+}
+
+.user-msg-container-inner {
+    min-width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start   ;
+}
+.dot {
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background: #8d8c91;
+    border-radius: 50%;
+    opacity: 0;
+    animation: loadingFade 1s infinite;
+  }
+  
+  .dot:nth-child(1) {
+    animation-delay: 0s;
+  }
+  
+  .dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes loadingFade {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.user-msg-container {
+    display:flex;
+    max-width: 65%;
+    flex-direction: row;
+    margin-left: auto; 
+    margin-top:1rem;
+}
+
+.msg-container img, .user-msg-container img, .typing-container img {
+    /* border:1px solid white; */
+    border-radius: 50%;
+    height:3.2rem;
+    /* box-shadow: 0px 0px 2px 2px rgb(0 0 0 / 15%); */
+}
+
+
+.notificationsBell {
+    width: 1.4rem!important;
+    height: auto;
+    position:relative;
+    display:inline-block;
+    margin-left:1rem;
+}
+
+.notificationsBell button, .userOptions i {
+    border:unset;
+    background:white;
+    border:1px solid lightgray!important;
+    border-radius: 50%;
+    padding:0.5rem 1rem;
+    box-shadow:0 0 3px 1px rgba(0,0,0,0.15)!important;
+    font-size:1.5rem;
+    color:var(--dark);
+}
+
+.userOptions i {
+    padding:0.89rem!important
+}
+
+.userOptions a {
+    padding:0;
+    margin-left:0.5rem;
+}
+
+.notificationsBell button:hover {
+    border:unset;
+    background:whitesmoke;
+    border:0.5rem solid whitesmoke;
+    border-radius: 50%;
+    color:unset;
+}
+
+ .userOptions i:hover {
+    background:whitesmoke;
+    border-radius: 50%;
+}
+
+.NotifDropdownMenu {
+    width:450px;
+    box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
+    border:1px solid lightgrey;
+    border-radius: 10px;
+    margin-top:0.8rem;
+}
+
+.NotifDropdownMenu:before,
+.NotifDropdownMenu:after, 
+.OptionsDropdownMenu:before,
+.OptionsDropdownMenu:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 19px;
+  border: 11px solid transparent;
+  border-bottom-color: rgba(0,0,0, 0.25);
+}
+
+.NotifDropdownMenu:after,
+.OptionsDropdownMenu:after {
+  left: 20px;
+  border: 10px solid transparent;
+  border-bottom-color: #ffffff;
+}
+
+.OptionsDropdownMenu {
+
+    box-shadow:0 0 3px 1px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding:1rem;
+    margin-top:-0.3rem;
+}
+
+.OptionsDropdownMenu button {
+    font-size:1.1rem;
+    font-weight: 500;
+    padding:0.2rem;
+}
+
+.dropdown-item {
+    white-space: pre-wrap;
+}
+
+.dropdown-header {
+    font-weight: 700;
+    font-size:1.4rem;
+    text-align: center;
+    color:var(--main-heading-color);
+}
+
+.notifContainer, .userContainer {
+    margin:0;
+}
+
+.ChannelsList {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap!important;
+}
+
+.ChannelsListModal {
+    max-width: 50%!important;
+}
+
+.ChannelsListDesc {
+    width:60%;
+    margin:0 auto;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.ChannelsListItem {
+    max-width:50%;
+    flex-basis: unset;
+    margin:auto;
+}
+
+.ChannelsListItem h5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+.card-body  {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.profileModal div {
+    padding-top:1rem;
+    display: flex;
+}
+
+.profileModal h2 {
+    color:#212529;
+    font-size: 2rem;
+    margin: 0 1rem;
+    width: 70%;
+    border-bottom: solid 5px #212529;
+}
+
+.profileModal button {
+    margin-left:auto;
+    width:25%;
+}
+
+.profileModal p {
+    margin:1rem;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.profileModal span {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin: 0 1rem;
+}
+
+.profileModal img {
+    height:7rem;
+    width: auto;
+    margin: 0;
+}
+
+.notificationsBellCounter {
+    background: var(--blue);
+    border-radius: 1em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 2em;
+    text-align: center;
+    font-weight: 400;
+    width: 2em; 
+    position: absolute;
+    top: -5px;
+    right: -40px;
+}
+
+.userControlPanel {
+    margin:1rem 0;
+    margin-bottom: 0;
+    padding:0 1rem;
+    border-bottom:1px solid lightgrey;
+    width:100%;
+    max-height: 5rem;
+    cursor: pointer;
+}
+
+.userDetails {
+    margin:0 0.5rem 0.65rem 0.5rem;
+}
+
+.userDetails span {
+    font-weight: 600;
+    font-size:1rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.userDetailsMessage {
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.userDetailsMessage img {
+    display:none;
+}
+
+.userDetailsMessage:hover {
+    text-decoration: underline;
+}
+
+ time {
+    font-size: 0.8rem;
+    color:lightslategrey;
+    font-weight: 200;
+    display:block;
+    margin-left: auto;
+}
+
+.chatUserMsg time {
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+.channelDetailsModal {
+    font-size:1rem;
+    font-weight: 400;
+}
+
+.channelDetailsModal h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-bottom:1px solid lightgrey;
+    margin: 1rem 0;
+    padding-bottom: 0.7rem;
+}
+
+@media only screen and (min-device-width : 40rem ) and (orientation : portrait) {
+    .authcard {
+        width:40%;
+        margin: 0 auto;
+        background:white;
+        padding:2rem;  
+        border: 5px white solid;
+        border-radius: 2%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }   
+    
+    .hero-centre {
+        margin: 0 auto;
+        margin-top:5%;
+        margin-bottom: auto;
+        width:90%;
+        text-align: center;
+    }
+    
+    .sidepaneParentDm h3, .sidepaneParentChannel h3 {
+        font-weight: 700!important;
+        display:flex;
+        margin:0;
+        font-size: 22px;
+        line-height: 1.6;
+    }
+
+    .sidepaneParentButton {
+        padding:0.375rem!important;
+    }
+
+    .sidenav {
+        max-width: 30%!important;
+    }
+
+    .Logo h2 {
+        white-space: pre-wrap;
+    }
+
+    .channelNameContainer {
+        padding: 0.375rem;
+        height:4.5rem;
+    }
+
+    .channelName{
+        margin: auto 0!important;
+        display: flex;
+        height: 100%;
+        width:65%
+    }
+
+    .channelName h1, .channelHash, .userAt {
+        font-size: 1.7rem;
+    }
+
+    .channelHash, .userAt {
+        padding:0 0.5rem;
+    }
+
+    .userContainer {
+        flex-wrap: nowrap!important;
+    }
+
+    .userControlPanel {
+        flex-wrap: nowrap!important;
+        padding:0.7rem 0.375rem;
+        margin:0;
+    }
+
+    .chatMainContainer {
+        min-width: 50%;
+    }
+
+    .userDetails {
+        margin:0 auto;
+        display: flex;
+        width: 99%;
+    }
+
+    .userDetails span {
+        margin:auto 0;
+    }
+
+    .dmAvatar {
+        height:3rem;
+        margin-right: 3px;
+    }
+
+
+    .notificationsBell {
+        margin-left: 0;
+    }
+
+    .notificationsBell button, .userOptions i {
+    border: unset;
+    background: white;
+    border-radius: 50%;
+    padding: 0.55rem 1rem;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.15)!important;
+    font-size: 1.3rem;
+    }
+
+    .notificationsBellCounter {
+        background: var(--blue);
+        border-radius: 0.8em;
+        -moz-border-radius: 0.8em;
+        -webkit-border-radius: 0.8em;
+        color: #ffffff;
+        display: inline-block;
+        line-height: 1.65em;
+        text-align: center;
+        font-weight: 400;
+        width: 1.6em; 
+        position: absolute;
+        top: -5px;
+        right: -30px;
+    }
+
+    .input-group-append {
+        width:22%;
+    }
+
+    .dropdown {
+        margin: 0 0.2rem;
+    }
+
+    .userOptions a {
+        margin:0; 
+    }
+
+    .userOptions i {
+        padding:0.9rem!important;
+    }
+
+    .userProfileContainer {
+        display: flex;
+        width: 59%;
+    }
+
+    .channelDescButton {
+        font-size: 1.8rem;
+        margin: 0 0.3rem;
+        height: fit-content;
+        width: fit-content;
+        padding: 0.4rem;
+    }
+
+    .channelNameButtons {
+        display: flex;
+        flex-direction: row;
+        margin: auto 10px;
+        margin-left: auto;
+    }
+
+    .Logo {
+        padding: 0.4rem;
+    }
+
+    .Logo h2 {
+        font-size: 1.4rem;
+    }
+}
